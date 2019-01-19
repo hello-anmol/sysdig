@@ -64,6 +64,7 @@ COREOS_NEW_BUILD_DONE=0
 COREOS_OLD_BUILD_DONE=0
 RHEL_BUILD_DONE=0
 FEDORA_BUILD_DONE=0
+FEDORA_ATOMIC_DONE=0
 CENTOS_BUILD_DONE=0
 UBUNTU_BUILD_DONE=0
 
@@ -604,7 +605,9 @@ if [ -z "$KERNEL_TYPE" ]; then
 	
 	for URL in $URLS
 	do
-		rhel_build $URL
+	    if [ $FEDORA_ATOMIC_DONE == 0 ]; then
+		rhel_build $URL FEDORA_ATOMIC_DONE
+	    fi
 	done
 
 	#
