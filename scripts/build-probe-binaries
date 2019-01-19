@@ -24,6 +24,8 @@
 #
 set -euo pipefail
 
+echo $PATH
+
 PROBE_NAME=$1
 PROBE_VERSION=$2
 REPOSITORY_NAME=$3
